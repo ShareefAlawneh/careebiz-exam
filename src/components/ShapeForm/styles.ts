@@ -5,8 +5,7 @@ export default createStyles({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        alignContent: 'center',
-        alignItems: 'center',
+       
         
     },
     selectContainer: {
@@ -14,6 +13,7 @@ export default createStyles({
     },
     itemsContainer: {
         display: 'flex',
+        flexWrap: 'wrap',
         alignItems: 'center'
     }
 })

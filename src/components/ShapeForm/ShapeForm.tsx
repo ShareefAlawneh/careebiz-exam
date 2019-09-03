@@ -78,9 +78,13 @@ export default class ShapeForm extends Component<ShapeFormProps & WithStyles<typ
         this.props.endProccess();
     }
 
+    handleDeleteItem = (id: number) => {
+        this.props.deleteShapeItem(id);
+        this.props.endProccess();
+    }
+
     render() {
         const { classes, shapes, disabledSelect } = this.props;
-        const { activeShapeItem } = this.state
 
         return (
             <div className={classes.root}>
@@ -91,7 +95,7 @@ export default class ShapeForm extends Component<ShapeFormProps & WithStyles<typ
                             id={shape.id}
                             name={shape.name}
                             onNameChange={this.handleEditShapeItem}
-                            onDelete={this.props.deleteShapeItem}
+                            onDelete={this.handleDeleteItem}
                             onDone={this.handleDoneClick}
                             onEditClicked={this.handleEditClicked}
                         />
@@ -99,7 +103,7 @@ export default class ShapeForm extends Component<ShapeFormProps & WithStyles<typ
                     <ShapeItemAdder onAddItem={this.handleAddItem} />
                 </div>
                 <div className={classes.selectContainer}>
-                    <Select  disabled={disabledSelect} value={this.props.selectedShape} onChange={this.handleSelectShapeType}>
+                    <Select title={'select shape'} className={classes.selectContainer} disabled={disabledSelect} value={this.props.selectedShape} onChange={this.handleSelectShapeType}>
                         <MenuItem value="">
                         </MenuItem>
                         {drawingModes.map(mode => (

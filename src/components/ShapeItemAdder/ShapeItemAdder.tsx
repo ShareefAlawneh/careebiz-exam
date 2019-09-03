@@ -18,9 +18,12 @@ const ShapeItemAdder: FunctionComponent<ShapeItemAdderProps & WithStyles<typeof 
     const [showAdder, setShowAdder] = useState(false);
     console.log("disabled", disabled)
     const handleAddItem = () => {
+        if(!shapeName){
+            return
+        }
         setShowAdder(false);
-        setShapeName('')
         onAddItem(shapeName)
+        setShapeName('')
     }
     return (
         <div className={classes.root}>
