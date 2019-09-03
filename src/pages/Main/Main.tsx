@@ -1,22 +1,24 @@
 import React, { Component } from 'react'
-import ShapeItem from '@careebiz/components/ShapeItem';
-import ShapeItemAdder from '@careebiz/components/ShapeItemAdder';
+import {persistShapeItem, endProccess} from './ducks/actions';
 import Map from '@careebiz/components/Map'
+import ShapeForm from '@careebiz/components/ShapeForm';
 interface MainProps {
-
+    selectedDrawingMode: string;
+    persistShapeItem: typeof persistShapeItem;
+    endProccess: typeof endProccess;
 }
 
 export default class Main extends Component<MainProps> {
     handleAddShape = (meta) => {
-        console.log("meta", meta);
-        
+        this.props.persistShapeItem(meta);
+        this.props.endProccess()
     }
+
     render() {
         return (
             <div>
-                {/* <Map onAddShape={this.handleAddShape}/> */}
-                <ShapeItem shape={{id: 0, name: 'Shape Item'}}/>
-                <ShapeItemAdder />
+                <Map onAddShape={this.handleAddShape} selectedDrawingMode={this.props.selectedDrawingMode}/>
+                <ShapeForm />
             </div>
         )
     }

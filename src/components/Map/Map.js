@@ -10,6 +10,10 @@ import {
 const {
   DrawingManager
 } = require("react-google-maps/lib/components/drawing/DrawingManager");
+export const drawingModes = [
+  'circle', 'polygon', 'polyline', 'rectangle'
+];
+
 
 const Map = compose(
   withProps({
@@ -28,8 +32,10 @@ const Map = compose(
   withGoogleMap
 )(props => (
   <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
+    {console.log("props", props)}
     <DrawingManager
-      defaultDrawingMode={google.maps.drawing.OverlayType.CIRCLE}
+      defaultDrawingMode={''}
+      drawingMode={props.selectedDrawingMode}
       onCircleComplete={props.onAddShape}
       onPolygonComplete={props.onAddShape}
       onPolylineComplete={props.onAddShape}
@@ -37,13 +43,8 @@ const Map = compose(
       defaultOptions={{
         drawingControl: true,
         drawingControlOptions: {
-          position: google.maps.ControlPosition.TOP_CENTER,
-          drawingModes: [
-            google.maps.drawing.OverlayType.CIRCLE,
-            google.maps.drawing.OverlayType.POLYGON,
-            google.maps.drawing.OverlayType.POLYLINE,
-            google.maps.drawing.OverlayType.RECTANGLE
-          ]
+          position: props.selectedDrawingMode,
+          drawingModes
         },
         circleOptions: {
           fillColor: `#ffff00`,

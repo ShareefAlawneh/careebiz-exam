@@ -7,9 +7,9 @@ import { store } from './app-ducks';
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-    <div className="App">
+    {/* <div > */}
       <Main />
-    </div>
+    {/* </div> */}
     </Provider>
   );
 }
