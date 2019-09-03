@@ -14,7 +14,9 @@ export default class Main extends Component<MainProps> {
     render() {
         return (
             <div>
-                <Map onAddShape={this.handleAddShape}/>
+                {/* <Map onAddShape={this.handleAddShape}/> */}
+                <ShapeItem shape={{id: 0, name: 'Shape Item'}}/>
+                <ShapeItemAdder />
             </div>
         )
     }
