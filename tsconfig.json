@@ -1,25 +1,50 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build/dist",
     "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "es5",
+      "es6"
     ],
     "allowJs": true,
     "skipLibCheck": true,
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
+    "rootDir": "src",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "isolatedModules": false,
+    "paths": {
+      "@careebiz/components/*":[
+        "src/components/*"
+      ],
+      "@careebiz/pages/*":[
+        "src/pages/*"
+      ],
+      "@careebiz/app-ducks/*":[
+        "src/app-ducks/*"
+      ],
+      "@careebiz/types":[
+        "src/types/index.ts"
+      ],
+    }
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "webpack",
   ]
 }
