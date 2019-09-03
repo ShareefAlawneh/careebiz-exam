@@ -1,19 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { compose, withProps } from "recompose";
 import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker
 } from "react-google-maps";
 const {
   DrawingManager
 } = require("react-google-maps/lib/components/drawing/DrawingManager");
-export const drawingModes = [
-  'circle', 'polygon', 'polyline', 'rectangle'
-];
-
+export const drawingModes = ["circle", "polygon", "polyline", "rectangle"];
 
 const Map = compose(
   withProps({
@@ -32,9 +27,8 @@ const Map = compose(
   withGoogleMap
 )(props => (
   <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
-    {console.log("props", props)}
     <DrawingManager
-      defaultDrawingMode={''}
+      defaultDrawingMode={""}
       drawingMode={props.selectedDrawingMode}
       onCircleComplete={props.onAddShape}
       onPolygonComplete={props.onAddShape}

@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import MainReducer from '@careebiz/pages/Main/ducks/reducers'
+import MainReducer from "@careebiz/pages/Main/ducks/reducers";
 const rootReducers = combineReducers({
-    ...MainReducer
+  ...MainReducer
 });
 
-export default rootReducers
+export default rootReducers;
