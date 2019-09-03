@@ -10,13 +10,5 @@ export default createStyles({
         padding: 10,
         margin: '0 5px'
     },
-    hiddenActionsContainer: {
-        visibility: 'hidden',
-    },
-    visibleActionsContainer: {
-        visibility: 'visible'
-    },
-    icon: {
-        cursor: 'pointer',
-    }
+    
 })
