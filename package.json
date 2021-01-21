@@ -12,7 +12,7 @@
     "@types/react-dom": "16.9.0",
     "@types/react-intl": "^3.0.0",
     "classnames": "^2.2.6",
-    "immer": "^3.2.0",
+    "immer": "^8.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-google-maps": "^9.4.5",
